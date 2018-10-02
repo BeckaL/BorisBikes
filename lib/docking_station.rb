@@ -13,16 +13,20 @@ class DockingStation
   end
 
   def release_bike
-    if @number_of_bikes == 0
-      puts 'no bikes remaining in station'
-    else
-
+    fail 'no bikes remaining in station' unless @number_of_bikes > 0
       @number_of_bikes -= 1
       return Bike.new
-    end
   end
 
   def dock(bike)
-    @number_of_bikes += 1
+    # if @number_of_bikes > 0
+    #   puts 'dock at capacity'
+    #   @number_of_bikes
+    # else
+    #   @number_of_bikes += 1
+    # end
+
+     fail 'dock at capacity' unless @number_of_bikes == 0
+     @number_of_bikes += 1
   end
 end

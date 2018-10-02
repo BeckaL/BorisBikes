@@ -11,18 +11,22 @@ RSpec.describe DockingStation do
 
      it 'docks bike in station' do
        dockingstation = DockingStation.new
-
-       expect(dockingstation.dock('bike')).to eq(2)
+       dockingstation.release_bike
+       expect(dockingstation.dock('bike')).to eq(1)
 
      end
 
      it 'cannot give 0 bikes' do
        dockingstation = DockingStation.new
        dockingstation.release_bike
-       p dockingstation.check_bikes
-       p dockingstation.release_bike
 
-       expect { dockingstation.release_bike 'no bikes remaining in station' }.to raise_error
+       expect { dockingstation.release_bike }.to raise_error 'no bikes remaining in station'
+     end
+
+     it "cannot store more than capacity" do
+       dockingstation = DockingStation.new
+       # dockingstation.dock('bike')
+       expect {dockingstation.dock('bike')}.to raise_error  'dock at capacity'
      end
   end
 end

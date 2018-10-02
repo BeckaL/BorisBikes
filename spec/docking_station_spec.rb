@@ -15,5 +15,14 @@ RSpec.describe DockingStation do
        expect(dockingstation.dock('bike')).to eq(2)
 
      end
+
+     it 'cannot give 0 bikes' do
+       dockingstation = DockingStation.new
+       dockingstation.release_bike
+       p dockingstation.check_bikes
+       p dockingstation.release_bike
+
+       expect { dockingstation.release_bike 'no bikes remaining in station' }.to raise_error
+     end
   end
 end

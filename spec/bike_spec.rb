@@ -7,5 +7,14 @@ RSpec.describe Bike do
 
       expect bike.respond_to?('working?')
     end
+
+    #not entirely sure whether this should sit in bike or docking DockingStation
+    it 'docks bike in station' do
+      bike = Bike.new
+
+      expect bike.dock.to eq TRUE
+
+    
+    end
   end
 end

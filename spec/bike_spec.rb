@@ -1,4 +1,5 @@
 require 'bike'
+require 'docking_station'
 
 RSpec.describe Bike do
   context 'standard specs' do

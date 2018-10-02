@@ -12,7 +12,7 @@ RSpec.describe DockingStation do
      it 'docks bike in station' do
        dockingstation = DockingStation.new
 
-       expect(dockingstation.dock('bike')).to eq(true)
+       expect(dockingstation.dock('bike')).to eq(2)
 
      end
   end
